@@ -1,0 +1,28 @@
+{
+  "orderEntry2App": {
+    "accnt": {
+      "home": {
+        "title": "Accnts",
+        "createLabel": "Create a new Accnt",
+        "createOrEditLabel": "Create or edit a Accnt",
+        "notFound": "No Accnts found"
+      },
+      "created": "A new Accnt is created with identifier {{ param }}",
+      "updated": "A Accnt is updated with identifier {{ param }}",
+      "deleted": "A Accnt is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Accnt {{ id }}?"
+      },
+      "detail": {
+        "title": "Accnt"
+      },
+      "accountId": "Account Id",
+      "field1": "Field 1",
+      "field2": "Field 2",
+      "field3": "Field 3",
+      "field4": "Field 4",
+      "field5": "Field 5",
+      "order": "Order"
+    }
+  }
+}

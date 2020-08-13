@@ -1,0 +1,55 @@
+{
+  "name": "Order",
+  "fields": [
+    {
+      "fieldName": "orderId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "field1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "field2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "field3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "field4",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "field5",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "accnt",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "accnt"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "instrument",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "instrument",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200813131256",
+  "entityTableName": "order",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

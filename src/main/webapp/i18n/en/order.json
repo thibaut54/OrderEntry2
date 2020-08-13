@@ -1,0 +1,29 @@
+{
+  "orderEntry2App": {
+    "order": {
+      "home": {
+        "title": "Orders",
+        "createLabel": "Create a new Order",
+        "createOrEditLabel": "Create or edit a Order",
+        "notFound": "No Orders found"
+      },
+      "created": "A new Order is created with identifier {{ param }}",
+      "updated": "A Order is updated with identifier {{ param }}",
+      "deleted": "A Order is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Order {{ id }}?"
+      },
+      "detail": {
+        "title": "Order"
+      },
+      "orderId": "Order Id",
+      "field1": "Field 1",
+      "field2": "Field 2",
+      "field3": "Field 3",
+      "field4": "Field 4",
+      "field5": "Field 5",
+      "accnt": "Accnt",
+      "instrument": "Instrument"
+    }
+  }
+}

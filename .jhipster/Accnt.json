@@ -1,0 +1,33 @@
+{
+  "name": "Accnt",
+  "fields": [
+    {
+      "fieldName": "acctCd",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "acctName",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "accnt",
+      "relationshipName": "order",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200813154629",
+  "entityTableName": "accnt",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

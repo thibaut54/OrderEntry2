@@ -1,0 +1,24 @@
+{
+  "orderEntry2App": {
+    "accnt": {
+      "home": {
+        "title": "Accnts",
+        "createLabel": "Créer un nouveau Accnt",
+        "createOrEditLabel": "Créer ou éditer un Accnt",
+        "notFound": "Aucun Accnt trouvé"
+      },
+      "created": "Un nouveau Accnt a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Accnt avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Accnt avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Accnt {{ id }} ?"
+      },
+      "detail": {
+        "title": "Accnt"
+      },
+      "acctCd": "Acct Cd",
+      "acctName": "Acct Name",
+      "order": "Order"
+    }
+  }
+}

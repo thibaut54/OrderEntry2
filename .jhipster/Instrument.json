@@ -1,0 +1,44 @@
+{
+  "name": "Instrument",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bloombergTicker",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "currencyQuotation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isin",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "market",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "instrument",
+      "relationshipName": "order"
+    }
+  ],
+  "changelogDate": "20200813154529",
+  "entityTableName": "instrument",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

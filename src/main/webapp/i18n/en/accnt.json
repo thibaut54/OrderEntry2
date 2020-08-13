@@ -1,0 +1,24 @@
+{
+  "orderEntry2App": {
+    "accnt": {
+      "home": {
+        "title": "Accnts",
+        "createLabel": "Create a new Accnt",
+        "createOrEditLabel": "Create or edit a Accnt",
+        "notFound": "No Accnts found"
+      },
+      "created": "A new Accnt is created with identifier {{ param }}",
+      "updated": "A Accnt is updated with identifier {{ param }}",
+      "deleted": "A Accnt is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Accnt {{ id }}?"
+      },
+      "detail": {
+        "title": "Accnt"
+      },
+      "acctCd": "Acct Cd",
+      "acctName": "Acct Name",
+      "order": "Order"
+    }
+  }
+}

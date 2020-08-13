@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="accnt">
+            <h2><span jhiTranslate="orderEntry2App.accnt.detail.title">Accnt</span> {{ accnt.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orderEntry2App.accnt.acctCd">Acct Cd</span></dt>
+                <dd>
+                    <span>{{ accnt.acctCd }}</span>
+                </dd>
+                <dt><span jhiTranslate="orderEntry2App.accnt.acctName">Acct Name</span></dt>
+                <dd>
+                    <span>{{ accnt.acctName }}</span>
+                </dd>
+                <dt><span jhiTranslate="orderEntry2App.accnt.order">Order</span></dt>
+                <dd>
+                    <div *ngIf="accnt.orderId">
+                        <a [routerLink]="['/order', accnt.orderId, 'view']">{{ accnt.orderId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/accnt', accnt.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

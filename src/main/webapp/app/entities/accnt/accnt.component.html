@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="orderEntry2App.accnt.home.title">Accnts</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-accnt" [routerLink]="['/accnt/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="orderEntry2App.accnt.home.createLabel">
+            Create a new Accnt
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="accnts?.length === 0">
+        <span jhiTranslate="orderEntry2App.accnt.home.notFound">No accnts found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="accnts && accnts.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="orderEntry2App.accnt.accountId">Account Id</span></th>
+                    <th scope="col" ><span jhiTranslate="orderEntry2App.accnt.field1">Field 1</span></th>
+                    <th scope="col" ><span jhiTranslate="orderEntry2App.accnt.field2">Field 2</span></th>
+                    <th scope="col" ><span jhiTranslate="orderEntry2App.accnt.field3">Field 3</span></th>
+                    <th scope="col" ><span jhiTranslate="orderEntry2App.accnt.field4">Field 4</span></th>
+                    <th scope="col" ><span jhiTranslate="orderEntry2App.accnt.field5">Field 5</span></th>
+                    <th scope="col" ><span jhiTranslate="orderEntry2App.accnt.order">Order</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let accnt of accnts ;trackBy: trackId">
+                    <td><a [routerLink]="['/accnt', accnt.id, 'view']">{{ accnt.id }}</a></td>
+                    <td>{{ accnt.accountId }}</td>
+                    <td>{{ accnt.field1 }}</td>
+                    <td>{{ accnt.field2 }}</td>
+                    <td>{{ accnt.field3 }}</td>
+                    <td>{{ accnt.field4 }}</td>
+                    <td>{{ accnt.field5 }}</td>
+                    <td>
+                        <div *ngIf="accnt.orderId">
+                            <a [routerLink]="['/order', accnt.orderId , 'view']" >{{ accnt.orderId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/accnt', accnt.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/accnt', accnt.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(accnt)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

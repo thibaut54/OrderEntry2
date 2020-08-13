@@ -1,0 +1,48 @@
+{
+  "name": "Instrument",
+  "fields": [
+    {
+      "fieldName": "instrumentId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "field1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "field2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "field3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "field4",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "field5",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "instrument",
+      "relationshipName": "order"
+    }
+  ],
+  "changelogDate": "20200813131356",
+  "entityTableName": "instrument",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

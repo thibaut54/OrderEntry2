@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-accnt-heading" jhiTranslate="orderEntry2App.accnt.home.createOrEditLabel">Create or edit a Accnt</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orderEntry2App.accnt.accountId" for="field_accountId">Account Id</label>
+                    <input type="number" class="form-control" name="accountId" id="field_accountId"
+                           formControlName="accountId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orderEntry2App.accnt.field1" for="field_field1">Field 1</label>
+                    <input type="text" class="form-control" name="field1" id="field_field1"
+                           formControlName="field1"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orderEntry2App.accnt.field2" for="field_field2">Field 2</label>
+                    <input type="text" class="form-control" name="field2" id="field_field2"
+                           formControlName="field2"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orderEntry2App.accnt.field3" for="field_field3">Field 3</label>
+                    <input type="text" class="form-control" name="field3" id="field_field3"
+                           formControlName="field3"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orderEntry2App.accnt.field4" for="field_field4">Field 4</label>
+                    <input type="text" class="form-control" name="field4" id="field_field4"
+                           formControlName="field4"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orderEntry2App.accnt.field5" for="field_field5">Field 5</label>
+                    <input type="text" class="form-control" name="field5" id="field_field5"
+                           formControlName="field5"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orderEntry2App.accnt.order" for="field_order">Order</label>
+                    <select class="form-control" id="field_order" name="order" formControlName="orderId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="orderOption.id" *ngFor="let orderOption of orders; trackBy: trackById">{{ orderOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

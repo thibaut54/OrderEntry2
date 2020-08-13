@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="orderEntry2App.order.home.title">Orders</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-order" [routerLink]="['/order/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="orderEntry2App.order.home.createLabel">
+            Create a new Order
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="orders?.length === 0">
+        <span jhiTranslate="orderEntry2App.order.home.notFound">No orders found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="orders && orders.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="orderId"><span jhiTranslate="orderEntry2App.order.orderId">Order Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="field1"><span jhiTranslate="orderEntry2App.order.field1">Field 1</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="field2"><span jhiTranslate="orderEntry2App.order.field2">Field 2</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="field3"><span jhiTranslate="orderEntry2App.order.field3">Field 3</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="field4"><span jhiTranslate="orderEntry2App.order.field4">Field 4</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="field5"><span jhiTranslate="orderEntry2App.order.field5">Field 5</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="instrumentId"><span jhiTranslate="orderEntry2App.order.instrument">Instrument</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let order of orders ;trackBy: trackId">
+                    <td><a [routerLink]="['/order', order.id, 'view']">{{ order.id }}</a></td>
+                    <td>{{ order.orderId }}</td>
+                    <td>{{ order.field1 }}</td>
+                    <td>{{ order.field2 }}</td>
+                    <td>{{ order.field3 }}</td>
+                    <td>{{ order.field4 }}</td>
+                    <td>{{ order.field5 }}</td>
+                    <td>
+                        <div *ngIf="order.instrumentId">
+                            <a [routerLink]="['/instrument', order.instrumentId , 'view']" >{{ order.instrumentId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/order', order.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/order', order.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(order)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

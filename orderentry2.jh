@@ -1,0 +1,47 @@
+
+entity Order {
+	orderInitiator String,
+    sideCombo String,
+    quantity String,
+    orderType String,
+    goodTill String,
+    tradingInstruction String,
+}
+
+entity Instrument {
+	name String,
+    bloombergTicker String,
+    currencyQuotation String,
+    isin String,
+    market String,
+}
+
+relationship OneToMany {
+	Instrument{order} to Order{instrument}
+}
+
+entity Accnt {
+	acctCd String,
+    acctName String,
+
+}
+
+relationship OneToMany {
+	Order{accnt} to Accnt{order}
+}
+
+
+
+
+// Set pagination options
+paginate Order, Instrument with infinite-scroll
+// paginate Job with pagination
+
+//Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-order-heading" jhiTranslate="orderEntry2App.order.home.createOrEditLabel">Create or edit a Order</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orderEntry2App.order.orderInitiator" for="field_orderInitiator">Order Initiator</label>
+                    <input type="text" class="form-control" name="orderInitiator" id="field_orderInitiator"
+                           formControlName="orderInitiator"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orderEntry2App.order.sideCombo" for="field_sideCombo">Side Combo</label>
+                    <input type="text" class="form-control" name="sideCombo" id="field_sideCombo"
+                           formControlName="sideCombo"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orderEntry2App.order.quantity" for="field_quantity">Quantity</label>
+                    <input type="text" class="form-control" name="quantity" id="field_quantity"
+                           formControlName="quantity"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orderEntry2App.order.orderType" for="field_orderType">Order Type</label>
+                    <input type="text" class="form-control" name="orderType" id="field_orderType"
+                           formControlName="orderType"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orderEntry2App.order.goodTill" for="field_goodTill">Good Till</label>
+                    <input type="text" class="form-control" name="goodTill" id="field_goodTill"
+                           formControlName="goodTill"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orderEntry2App.order.tradingInstruction" for="field_tradingInstruction">Trading Instruction</label>
+                    <input type="text" class="form-control" name="tradingInstruction" id="field_tradingInstruction"
+                           formControlName="tradingInstruction"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orderEntry2App.order.instrument" for="field_instrument">Instrument</label>
+                    <select class="form-control" id="field_instrument" name="instrument" formControlName="instrumentId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="instrumentOption.id" *ngFor="let instrumentOption of instruments; trackBy: trackById">{{ instrumentOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

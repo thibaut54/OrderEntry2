@@ -1,0 +1,55 @@
+{
+  "name": "Order",
+  "fields": [
+    {
+      "fieldName": "orderInitiator",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sideCombo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "quantity",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orderType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "goodTill",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tradingInstruction",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "accnt",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "accnt"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "instrument",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "instrument",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200816093301",
+  "entityTableName": "order",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
